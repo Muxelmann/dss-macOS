@@ -1,3 +1,5 @@
 .DS_Store
 *DerivedData*
 dss_cmd/dss_cmd/dss_capi/*
+electricdss-src
+dss_capi
