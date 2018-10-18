@@ -1,0 +1,6 @@
+[submodule "dss_capi"]
+	path = dss_capi
+	url = https://github.com/PMeira/dss_capi
+[submodule "electricdss-src"]
+	path = electricdss-src
+	url = https://github.com/PMeira/electricdss-src

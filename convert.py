@@ -1,6 +1,8 @@
 #!/usr/local/bin/python3
 
-import re
+import re, sys
+
+HEADER_FILE = 'dss_capi/dss_capi.h'
 
 _last_comment = ''
 _is_in_comment = False
@@ -148,10 +150,18 @@ def decode_func(line):
     return ''
 
 def main():
+
+    if len(sys.argv) != 3:
+        print('python3 convert.py path/to/c_header.h path/to/c_class.swift')
+        exit()
+
+    HEADER_FILE = sys.argv[1]
+    SWIFT_FILE = sys.argv[2]
+
     print('Hello World')
 
     # Opens the header file
-    dss_file = open('dss_capi/dss_capi.h', 'r')
+    dss_file = open(HEADER_FILE, 'r')
 
     # Loads content and breaks it into lines
     dss_header = dss_file.read()
@@ -221,7 +231,7 @@ def main():
     swift_template_list = swift_template.split('##########')
 
     # Start writing to the output file
-    fout = open('DSS.swift', 'w')
+    fout = open(SWIFT_FILE, 'w')
 
     # Write the head first
     fout.write(swift_template_list[0])
