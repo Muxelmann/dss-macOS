@@ -1,0 +1,4 @@
+module dss_capi [system] {
+    header "/Users/maxi/SynologyDrive/developer/dss_swift/dss_swift/dss_capi/dss_capi.h"
+    export *
+}

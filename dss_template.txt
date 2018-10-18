@@ -1,0 +1,114 @@
+import Foundation
+import dss_capi
+
+typealias Int32Array = UnsafeMutablePointer<Int32>
+typealias Int32ArrayPtr = UnsafeMutablePointer<Int32Array?>
+typealias Int32ArrayFunc = (Int32ArrayPtr, Int32Array) -> Void
+typealias Int32ArrayPhaseFunc = (Int32ArrayPtr, Int32Array, Int32) -> Void
+
+typealias DSSString = UnsafeMutablePointer<Int8>
+typealias DSSStringArray = UnsafeMutablePointer<DSSString?>
+typealias DSSStringArrayPtr = UnsafeMutablePointer<DSSStringArray?>
+typealias DSSStringArrayFunc = (DSSStringArrayPtr, Int32Array) -> Void
+typealias DSSStringArrayPhaseFunc = (DSSStringArrayPtr, Int32Array, Int32) -> Void
+
+typealias DSSDoubleArray = UnsafeMutablePointer<Double>
+typealias DSSDoubleArrayPtr = UnsafeMutablePointer<DSSDoubleArray?>
+typealias DSSDoubleArrayFunc = (DSSDoubleArrayPtr, Int32Array) -> Void
+typealias DSSDoubleArrayPhaseFunc = (DSSDoubleArrayPtr, Int32Array, Int32) -> Void
+
+class DSS {
+
+##########
+
+    static func getPointer(to string: String) -> DSSString {
+        return DSSString(mutating: (string as NSString).utf8String)!
+    }
+
+    static let getStringArray: (DSSStringArrayFunc) -> [String]  = {
+        dssFunction -> [String] in
+        var elementArray: DSSStringArray? = nil
+        var elementCount = Int32(0)
+        dssFunction(&elementArray, &elementCount)
+
+        var elements = [String]()
+        for i in 0 ..< Int(elementCount) {
+            elements += [String(cString: elementArray![i]!)]
+        }
+
+        return elements
+    }
+
+    static let getStringPhaseArray: (DSSStringArrayPhaseFunc, Int32) -> [String] = {
+        (dssFunction, phase) -> [String] in
+
+        var elementArray: DSSStringArray? = nil
+        var elementCount = Int32(0)
+        dssFunction(&elementArray, &elementCount, phase)
+
+        var elements = [String]()
+        for i in 0 ..< Int(elementCount) {
+            elements += [String(cString: elementArray![i]!)]
+        }
+
+        return elements
+    }
+
+    static let getDoubleArray: (DSSDoubleArrayFunc) -> [Double] = {
+        dssFunction -> [Double] in
+        var elementArray: DSSDoubleArray? = nil
+        var elementCount = Int32(0)
+        dssFunction(&elementArray, &elementCount)
+
+        var elements = [Double]()
+        for i in 0 ..< Int(elementCount) {
+            elements += [elementArray![i]]
+        }
+
+        return elements
+    }
+
+    static let getDoublePhaseArray: (DSSDoubleArrayPhaseFunc, Int32) -> [Double] = {
+        (dssFunction, phase) -> [Double] in
+
+        var elementArray: DSSDoubleArray? = nil
+        var elementCount = Int32(0)
+        dssFunction(&elementArray, &elementCount, phase)
+
+        var elements = [Double]()
+        for i in 0 ..< Int(elementCount) {
+            elements += [elementArray![i]]
+        }
+
+        return elements
+    }
+
+    static let getIntArray: (Int32ArrayFunc) -> [Int] = {
+        dssFunction -> [Int] in
+        var elementArray: Int32Array? = nil
+        var elementCount = Int32(0)
+        dssFunction(&elementArray, &elementCount)
+
+        var elements = [Int]()
+        for i in 0 ..< Int(elementCount) {
+            elements += [Int(elementArray![i])]
+        }
+
+        return elements
+    }
+
+    static func getString(from function: () -> UnsafeMutablePointer<Int8>?) -> String? {
+        if let string = function() {
+            return String(cString: string)
+        }
+        return nil
+    }
+
+    static func getString(from function: (Int32) -> UnsafeMutablePointer<Int8>?, for value: Int) -> String? {
+        if let string = function(Int32(value)) {
+            return String(cString: string)
+        }
+        return nil
+    }
+
+}
