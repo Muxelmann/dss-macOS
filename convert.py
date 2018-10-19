@@ -211,7 +211,6 @@ def main():
         if '(' in dss_header_list[i] and ')' not in dss_header_list[i]:
             i_in_func = True
             i_func = i
-            print(dss_header_list[i])
 
     # Remove all empty lines after combining multi-line functions
     dss_header_list = list(filter(lambda x: len(x) is not 0, dss_header_list))
