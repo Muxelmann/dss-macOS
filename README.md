@@ -9,6 +9,7 @@ This project relies on [`electricdss-src`](https://github.com/PMeira/electricdss
 ```bash
 make setup
 make
+make install
 ```
 
 ## Xcode setup
