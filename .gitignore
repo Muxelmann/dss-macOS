@@ -1,3 +1,4 @@
 .DS_Store
 *DerivedData*
 dss_cmd/dss_cmd/dss_capi/*
+app_cmd/app_cmd/dss_capi/*
