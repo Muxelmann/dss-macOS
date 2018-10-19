@@ -158,7 +158,7 @@ def main():
     HEADER_FILE = sys.argv[1]
     SWIFT_FILE = sys.argv[2]
 
-    print('Hello World')
+    print('Converting the dss c-header')
 
     # Opens the header file
     dss_file = open(HEADER_FILE, 'r')
@@ -215,8 +215,6 @@ def main():
 
     # Remove all empty lines after combining multi-line functions
     dss_header_list = list(filter(lambda x: len(x) is not 0, dss_header_list))
-
-    print(dss_header_list)
 
     # Open template file
     swift_template_file = open('dss_template.txt', 'r')
