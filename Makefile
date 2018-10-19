@@ -3,7 +3,7 @@ cmd_folder_map = $(cmd_folder)/module.map
 cmd_header_path := $(abspath $(cmd_folder))
 
 .PHONY: all
-all:
+all: $(cmd_folder)
 	git submodule init
 	git submodule update
 	cd dss_capi/klusolve && cmake . && make
@@ -28,3 +28,7 @@ clean:
 	rm $(cmd_folder)/*
 	rm -rf electricdss-src
 	git submodule update
+
+.PHONY: $(cmd_folder)
+$(cmd_folder):
+	mkdir $(cmd_folder)
