@@ -11,7 +11,27 @@
 		54095802217A0C8B00C62CCE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54095801217A0C8B00C62CCE /* ViewController.swift */; };
 		54095804217A0C8C00C62CCE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 54095803217A0C8C00C62CCE /* Assets.xcassets */; };
 		54095807217A0C8C00C62CCE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 54095805217A0C8C00C62CCE /* Main.storyboard */; };
+		54095810217A1E9500C62CCE /* dss_capi in Resources */ = {isa = PBXBuildFile; fileRef = 5409580F217A1E9500C62CCE /* dss_capi */; };
+		54095813217A1EED00C62CCE /* libdss_capi_v7.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 54095812217A1EED00C62CCE /* libdss_capi_v7.dylib */; };
+		54095815217A1EF000C62CCE /* libklusolve.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 54095814217A1EF000C62CCE /* libklusolve.dylib */; };
+		54095817217A1F2000C62CCE /* libklusolve.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = 54095814217A1EF000C62CCE /* libklusolve.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		54095818217A1F2000C62CCE /* libdss_capi_v7.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = 54095812217A1EED00C62CCE /* libdss_capi_v7.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		5409581A217A1F6C00C62CCE /* DSS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54095819217A1F6C00C62CCE /* DSS.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		54095816217A1F1400C62CCE /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = .;
+			dstSubfolderSpec = 16;
+			files = (
+				54095817217A1F2000C62CCE /* libklusolve.dylib in CopyFiles */,
+				54095818217A1F2000C62CCE /* libdss_capi_v7.dylib in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		540957FC217A0C8B00C62CCE /* dss_app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = dss_app.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -21,6 +41,10 @@
 		54095806217A0C8C00C62CCE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		54095808217A0C8C00C62CCE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		54095809217A0C8C00C62CCE /* dss_app.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = dss_app.entitlements; sourceTree = "<group>"; };
+		5409580F217A1E9500C62CCE /* dss_capi */ = {isa = PBXFileReference; lastKnownFileType = folder; path = dss_capi; sourceTree = "<group>"; };
+		54095812217A1EED00C62CCE /* libdss_capi_v7.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libdss_capi_v7.dylib; path = dss_app/dss_capi/libdss_capi_v7.dylib; sourceTree = "<group>"; };
+		54095814217A1EF000C62CCE /* libklusolve.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libklusolve.dylib; path = dss_app/dss_capi/libklusolve.dylib; sourceTree = "<group>"; };
+		54095819217A1F6C00C62CCE /* DSS.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DSS.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -28,6 +52,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				54095815217A1EF000C62CCE /* libklusolve.dylib in Frameworks */,
+				54095813217A1EED00C62CCE /* libdss_capi_v7.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -39,6 +65,7 @@
 			children = (
 				540957FE217A0C8B00C62CCE /* dss_app */,
 				540957FD217A0C8B00C62CCE /* Products */,
+				54095811217A1EED00C62CCE /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -53,6 +80,8 @@
 		540957FE217A0C8B00C62CCE /* dss_app */ = {
 			isa = PBXGroup;
 			children = (
+				5409580F217A1E9500C62CCE /* dss_capi */,
+				54095819217A1F6C00C62CCE /* DSS.swift */,
 				540957FF217A0C8B00C62CCE /* AppDelegate.swift */,
 				54095801217A0C8B00C62CCE /* ViewController.swift */,
 				54095803217A0C8C00C62CCE /* Assets.xcassets */,
@@ -61,6 +90,15 @@
 				54095809217A0C8C00C62CCE /* dss_app.entitlements */,
 			);
 			path = dss_app;
+			sourceTree = "<group>";
+		};
+		54095811217A1EED00C62CCE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				54095814217A1EF000C62CCE /* libklusolve.dylib */,
+				54095812217A1EED00C62CCE /* libdss_capi_v7.dylib */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -73,6 +111,7 @@
 				540957F8217A0C8B00C62CCE /* Sources */,
 				540957F9217A0C8B00C62CCE /* Frameworks */,
 				540957FA217A0C8B00C62CCE /* Resources */,
+				54095816217A1F1400C62CCE /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -122,6 +161,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				54095804217A0C8C00C62CCE /* Assets.xcassets in Resources */,
+				54095810217A1E9500C62CCE /* dss_capi in Resources */,
 				54095807217A0C8C00C62CCE /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -133,6 +173,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5409581A217A1F6C00C62CCE /* DSS.swift in Sources */,
 				54095802217A0C8B00C62CCE /* ViewController.swift in Sources */,
 				54095800217A0C8B00C62CCE /* AppDelegate.swift in Sources */,
 			);
@@ -280,8 +321,14 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/dss_app",
+					"$(PROJECT_DIR)/dss_app/dss_capi",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.max.zangs.dss-app";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_INCLUDE_PATHS = "$(PROJECT_DIR)/dss_app/dss_capi";
 				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
@@ -299,8 +346,14 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/dss_app",
+					"$(PROJECT_DIR)/dss_app/dss_capi",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.max.zangs.dss-app";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_INCLUDE_PATHS = "$(PROJECT_DIR)/dss_app/dss_capi";
 				SWIFT_VERSION = 4.2;
 			};
 			name = Release;

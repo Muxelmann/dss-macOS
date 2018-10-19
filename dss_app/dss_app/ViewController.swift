@@ -14,6 +14,9 @@ class ViewController: NSViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        let dss = DSS()
+        print("DSS VERSION: ")
+        print(dss.DSSGetVersion() ?? "unknown version")
     }
 
     override var representedObject: Any? {

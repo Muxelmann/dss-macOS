@@ -1,0 +1,5 @@
+module dss_capi [system] {
+    header "/Users/maxi/SynologyDrive/developer/dss-macOS/dss_app/dss_app/dss_capi/dss_capi.h"
+    export *
+}
+
