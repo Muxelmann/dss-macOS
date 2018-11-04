@@ -23,7 +23,7 @@ class DSS {
     /**
     The C function called is: ```void DSS_ResetStringBuffer(void);```
     */
-    func DSSResetStringBuffer() {
+    func ResetStringBuffer() {
         DSS_ResetStringBuffer()
     }
         
@@ -47,7 +47,7 @@ class DSS {
     Dispose temporary buffer data in the global result (GR) pointers.
     The C function called is: ```void DSS_DisposeGRData(void);```
     */
-    func DSSDisposeGRData() {
+    func DisposeGRData() {
         DSS_DisposeGRData()
     }
         
@@ -59,7 +59,7 @@ class DSS {
     /**
     The C function called is: ```void DSS_NewCircuit(char* Value);```
     */
-    func DSSNewCircuit(_ value: String) {
+    func NewCircuit(_ value: String) {
         DSS_NewCircuit(DSS.getPointer(to: value))
     }
         
@@ -2158,14 +2158,14 @@ class DSS {
     Number of Circuits currently defined.
     The C function called is: ```int32_t DSS_Get_NumCircuits(void);```
     */
-    func DSSGetNumCircuits() -> Int {
+    func GetNumCircuits() -> Int {
         return Int(DSS_Get_NumCircuits())
     }
         
     /**
     The C function called is: ```void DSS_ClearAll(void);```
     */
-    func DSSClearAll() {
+    func ClearAll() {
         DSS_ClearAll()
     }
         
@@ -2173,14 +2173,14 @@ class DSS {
     Get version string for the DSS..
     The C function called is: ```char* DSS_Get_Version(void);```
     */
-    func DSSGetVersion() -> String? {
+    func GetVersion() -> String? {
         return DSS.getString(from: DSS_Get_Version)
     }
         
     /**
     The C function called is: ```uint16_t DSS_Start(int32_t code);```
     */
-    func DSSStart(_ value: Int) -> Int {
+    func Start(_ value: Int) -> Int {
         return Int(DSS_Start(Int32(value)))
     }
         
@@ -2188,7 +2188,7 @@ class DSS {
     List of DSS intrinsic classes (names of the classes).
     The C function called is: ```void DSS_Get_Classes(char*** ResultPtr, int32_t* ResultCount);```
     */
-    func DSSGetClasses() -> [String] {
+    func GetClasses() -> [String] {
         return DSS.getStringArray(DSS_Get_Classes)
     }
         
@@ -2196,7 +2196,7 @@ class DSS {
     Same as DSS_Get_Classes but using the global buffer interface for results.
     The C function called is: ```void DSS_Get_Classes_GR(void);```
     */
-    func DSSGetClassesGR() {
+    func GetClassesGR() {
         DSS_Get_Classes_GR()
     }
         
@@ -2204,7 +2204,7 @@ class DSS {
     List of user-defined classes.
     The C function called is: ```void DSS_Get_UserClasses(char*** ResultPtr, int32_t* ResultCount);```
     */
-    func DSSGetUserClasses() -> [String] {
+    func GetUserClasses() -> [String] {
         return DSS.getStringArray(DSS_Get_UserClasses)
     }
         
@@ -2212,7 +2212,7 @@ class DSS {
     Same as DSS_Get_UserClasses but using the global buffer interface for results.
     The C function called is: ```void DSS_Get_UserClasses_GR(void);```
     */
-    func DSSGetUserClassesGR() {
+    func GetUserClassesGR() {
         DSS_Get_UserClasses_GR()
     }
         
@@ -2220,7 +2220,7 @@ class DSS {
     Number of DSS intrinsic classes.
     The C function called is: ```int32_t DSS_Get_NumClasses(void);```
     */
-    func DSSGetNumClasses() -> Int {
+    func GetNumClasses() -> Int {
         return Int(DSS_Get_NumClasses())
     }
         
@@ -2228,7 +2228,7 @@ class DSS {
     Number of user-defined classes.
     The C function called is: ```int32_t DSS_Get_NumUserClasses(void);```
     */
-    func DSSGetNumUserClasses() -> Int {
+    func GetNumUserClasses() -> Int {
         return Int(DSS_Get_NumUserClasses())
     }
         
@@ -2236,7 +2236,7 @@ class DSS {
     DSS Data File Path.  Default path for reports, etc. from DSS.
     The C function called is: ```char* DSS_Get_DataPath(void);```
     */
-    func DSSGetDataPath() -> String? {
+    func GetDataPath() -> String? {
         return DSS.getString(from: DSS_Get_DataPath)
     }
         
@@ -2244,14 +2244,14 @@ class DSS {
     DSS Data File Path.  Default path for reports, etc. from DSS.
     The C function called is: ```void DSS_Set_DataPath(char* Value);```
     */
-    func DSSSetDataPath(_ value: String) {
+    func SetDataPath(_ value: String) {
         DSS_Set_DataPath(DSS.getPointer(to: value))
     }
         
     /**
     The C function called is: ```void DSS_Reset(void);```
     */
-    func DSSReset() {
+    func Reset() {
         DSS_Reset()
     }
         
@@ -2259,7 +2259,7 @@ class DSS {
     Returns the path name for the default text editor..
     The C function called is: ```char* DSS_Get_DefaultEditor(void);```
     */
-    func DSSGetDefaultEditor() -> String? {
+    func GetDefaultEditor() -> String? {
         return DSS.getString(from: DSS_Get_DefaultEditor)
     }
         
@@ -2270,14 +2270,14 @@ class DSS {
     /**
     The C function called is: ```uint16_t DSS_Get_AllowForms(void);```
     */
-    func DSSGetAllowForms() -> Int {
+    func GetAllowForms() -> Int {
         return Int(DSS_Get_AllowForms())
     }
         
     /**
     The C function called is: ```void DSS_Set_AllowForms(uint16_t Value);```
     */
-    func DSSSetAllowForms(_ value: Int) {
+    func SetAllowForms(_ value: Int) {
         DSS_Set_AllowForms(UInt16(value))
     }
         
@@ -2285,7 +2285,7 @@ class DSS {
     Array of strings containing the names of all properties for the active DSS object..
     The C function called is: ```void DSSElement_Get_AllPropertyNames(char*** ResultPtr, int32_t* ResultCount);```
     */
-    func DSSElementGetAllPropertyNames() -> [String] {
+    func ElementGetAllPropertyNames() -> [String] {
         return DSS.getStringArray(DSSElement_Get_AllPropertyNames)
     }
         
@@ -2293,7 +2293,7 @@ class DSS {
     Same as DSSElement_Get_AllPropertyNames but using the global buffer interface for results.
     The C function called is: ```void DSSElement_Get_AllPropertyNames_GR(void);```
     */
-    func DSSElementGetAllPropertyNamesGR() {
+    func ElementGetAllPropertyNamesGR() {
         DSSElement_Get_AllPropertyNames_GR()
     }
         
@@ -2301,7 +2301,7 @@ class DSS {
     Full Name of Active DSS Object (general element or circuit element)..
     The C function called is: ```char* DSSElement_Get_Name(void);```
     */
-    func DSSElementGetName() -> String? {
+    func ElementGetName() -> String? {
         return DSS.getString(from: DSSElement_Get_Name)
     }
         
@@ -2309,7 +2309,7 @@ class DSS {
     Number of Properties for the active DSS object..
     The C function called is: ```int32_t DSSElement_Get_NumProperties(void);```
     */
-    func DSSElementGetNumProperties() -> Int {
+    func ElementGetNumProperties() -> Int {
         return Int(DSSElement_Get_NumProperties())
     }
         
@@ -2334,7 +2334,7 @@ class DSS {
     /**
     The C function called is: ```void DSSProgress_Close(void);```
     */
-    func DSSProgressClose() {
+    func ProgressClose() {
         DSSProgress_Close()
     }
         
@@ -2342,7 +2342,7 @@ class DSS {
     Caption to appear on the bottom of the DSS Progress form..
     The C function called is: ```void DSSProgress_Set_Caption(char* Value);```
     */
-    func DSSProgressSetCaption(_ value: String) {
+    func ProgressSetCaption(_ value: String) {
         DSSProgress_Set_Caption(DSS.getPointer(to: value))
     }
         
@@ -2350,14 +2350,14 @@ class DSS {
     Percent progress to indicate [0..100].
     The C function called is: ```void DSSProgress_Set_PctProgress(int32_t Value);```
     */
-    func DSSProgressSetPctProgress(_ value: Int) {
+    func ProgressSetPctProgress(_ value: Int) {
         DSSProgress_Set_PctProgress(Int32(value))
     }
         
     /**
     The C function called is: ```void DSSProgress_Show(void);```
     */
-    func DSSProgressShow() {
+    func ProgressShow() {
         DSSProgress_Show()
     }
         
@@ -2365,7 +2365,7 @@ class DSS {
     Description of the property..
     The C function called is: ```char* DSSProperty_Get_Description(void);```
     */
-    func DSSPropertyGetDescription() -> String? {
+    func PropertyGetDescription() -> String? {
         return DSS.getString(from: DSSProperty_Get_Description)
     }
         
@@ -2373,35 +2373,35 @@ class DSS {
     Name of Property.
     The C function called is: ```char* DSSProperty_Get_Name(void);```
     */
-    func DSSPropertyGetName() -> String? {
+    func PropertyGetName() -> String? {
         return DSS.getString(from: DSSProperty_Get_Name)
     }
         
     /**
     The C function called is: ```char* DSSProperty_Get_Val(void);```
     */
-    func DSSPropertyGetVal() -> String? {
+    func PropertyGetVal() -> String? {
         return DSS.getString(from: DSSProperty_Get_Val)
     }
         
     /**
     The C function called is: ```void DSSProperty_Set_Val(char* Value);```
     */
-    func DSSPropertySetVal(_ value: String) {
+    func PropertySetVal(_ value: String) {
         DSSProperty_Set_Val(DSS.getPointer(to: value))
     }
         
     /**
     The C function called is: ```void DSSProperty_Set_Name(char* Value);```
     */
-    func DSSPropertySetName(_ value: String) {
+    func PropertySetName(_ value: String) {
         DSSProperty_Set_Name(DSS.getPointer(to: value))
     }
         
     /**
     The C function called is: ```void DSSProperty_Set_Index(int32_t Value);```
     */
-    func DSSPropertySetIndex(_ value: Int) {
+    func PropertySetIndex(_ value: Int) {
         DSSProperty_Set_Index(Int32(value))
     }
         
@@ -2409,7 +2409,7 @@ class DSS {
     Get i-th command.
     The C function called is: ```char* DSS_Executive_Get_Command(int32_t i);```
     */
-    func DSSExecutiveGetCommand(_ value: Int) -> String? {
+    func ExecutiveGetCommand(_ value: Int) -> String? {
         return DSS.getString(from: DSS_Executive_Get_Command, for: value)
     }
         
@@ -2417,7 +2417,7 @@ class DSS {
     Number of DSS Executive Commands.
     The C function called is: ```int32_t DSS_Executive_Get_NumCommands(void);```
     */
-    func DSSExecutiveGetNumCommands() -> Int {
+    func ExecutiveGetNumCommands() -> Int {
         return Int(DSS_Executive_Get_NumCommands())
     }
         
@@ -2425,7 +2425,7 @@ class DSS {
     Number of DSS Executive Options.
     The C function called is: ```int32_t DSS_Executive_Get_NumOptions(void);```
     */
-    func DSSExecutiveGetNumOptions() -> Int {
+    func ExecutiveGetNumOptions() -> Int {
         return Int(DSS_Executive_Get_NumOptions())
     }
         
@@ -2433,7 +2433,7 @@ class DSS {
     Get i-th option.
     The C function called is: ```char* DSS_Executive_Get_Option(int32_t i);```
     */
-    func DSSExecutiveGetOption(_ value: Int) -> String? {
+    func ExecutiveGetOption(_ value: Int) -> String? {
         return DSS.getString(from: DSS_Executive_Get_Option, for: value)
     }
         
@@ -2441,7 +2441,7 @@ class DSS {
     Get help string for i-th command.
     The C function called is: ```char* DSS_Executive_Get_CommandHelp(int32_t i);```
     */
-    func DSSExecutiveGetCommandHelp(_ value: Int) -> String? {
+    func ExecutiveGetCommandHelp(_ value: Int) -> String? {
         return DSS.getString(from: DSS_Executive_Get_CommandHelp, for: value)
     }
         
@@ -2449,7 +2449,7 @@ class DSS {
     Get help string for i-th option.
     The C function called is: ```char* DSS_Executive_Get_OptionHelp(int32_t i);```
     */
-    func DSSExecutiveGetOptionHelp(_ value: Int) -> String? {
+    func ExecutiveGetOptionHelp(_ value: Int) -> String? {
         return DSS.getString(from: DSS_Executive_Get_OptionHelp, for: value)
     }
         
@@ -2457,7 +2457,7 @@ class DSS {
     Get present value of i-th option.
     The C function called is: ```char* DSS_Executive_Get_OptionValue(int32_t i);```
     */
-    func DSSExecutiveGetOptionValue(_ value: Int) -> String? {
+    func ExecutiveGetOptionValue(_ value: Int) -> String? {
         return DSS.getString(from: DSS_Executive_Get_OptionValue, for: value)
     }
         

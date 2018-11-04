@@ -35,6 +35,7 @@ def decode_func(line):
         # Make it a CamelCase function name for Swift
         swift_function = list(filter(lambda x: len(x) > 0, c_function.split('_')))
         swift_function = ''.join([l[0].upper() + l[1:] for l in swift_function])
+        swift_function = swift_function.replace('DSS', '')
 
         func_def = '\n/**\n'
 
