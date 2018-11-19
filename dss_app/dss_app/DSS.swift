@@ -5195,6 +5195,9 @@ class DSS {
     Byte Array containing monitor stream values. Make sure a "save" is done first (standard solution modes do this automatically).
     The C function called is: ```void Monitors_Get_ByteStream(int8_t** ResultPtr, int32_t* ResultCount);```
     */
+    func MonitorsGetByteStream() -> [Int8] {
+        return DSS.getByteArray(Monitors_Get_ByteStream)
+    }
         
     /**
     Same as Monitors_Get_ByteStream but using the global buffer interface for results.
@@ -10559,6 +10562,20 @@ class DSS {
         var elements = [Int]()
         for i in 0 ..< Int(elementCount) {
             elements += [Int(elementArray![i])]
+        }
+
+        return elements
+    }
+
+    static let getByteArray: ((UnsafeMutablePointer<UnsafeMutablePointer<Int8>?>, UnsafeMutablePointer<Int32>) -> ()) -> [Int8] = {
+        dssFunction -> [Int8] in
+        var elementArray: UnsafeMutablePointer<Int8>? = UnsafeMutablePointer<Int8>.allocate(capacity: Int(Int32.max))
+        var elementCount = Int32(0)
+        dssFunction(&elementArray, &elementCount)
+
+        var elements = [Int8]()
+        for i in 0 ..< Int(elementCount) {
+            elements += [Int8(elementArray![i])]
         }
 
         return elements

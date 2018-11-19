@@ -1,7 +1,8 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="11134" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11134"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14460.31"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Application-->
@@ -673,7 +674,7 @@
                         <outlet property="delegate" destination="Voe-Tx-rLC" id="PrD-fu-P6m"/>
                     </connections>
                 </application>
-                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModuleProvider="target"/>
+                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="dss_app" customModuleProvider="target"/>
                 <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
                 <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -703,11 +704,68 @@
         <!--View Controller-->
         <scene sceneID="hIz-AP-VOD">
             <objects>
-                <viewController id="XfG-lQ-9wD" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="XfG-lQ-9wD" customClass="ViewController" customModule="dss_app" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" wantsLayer="YES" id="m2S-Jp-Qdl">
                         <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="LQ6-y2-qBQ">
+                                <rect key="frame" x="342" y="222" width="124" height="32"/>
+                                <buttonCell key="cell" type="push" title="Load DSS File" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="5On-4j-eqE">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="loadFile:" target="XfG-lQ-9wD" id="8fg-Pa-Kaj"/>
+                                </connections>
+                            </button>
+                            <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="2Kr-qy-KhS">
+                                <rect key="frame" x="20" y="229" width="320" height="22"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" enabled="NO" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" id="DM1-LY-1ft">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <scrollView borderType="none" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZbT-50-eHi">
+                                <rect key="frame" x="20" y="20" width="440" height="201"/>
+                                <clipView key="contentView" drawsBackground="NO" copiesOnScroll="NO" id="ePQ-wz-zZu">
+                                    <rect key="frame" x="0.0" y="0.0" width="425" height="201"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <textView importsGraphics="NO" richText="NO" verticallyResizable="YES" spellingCorrection="YES" smartInsertDelete="YES" id="gvs-su-edL">
+                                            <rect key="frame" x="0.0" y="0.0" width="425" height="201"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            <size key="minSize" width="425" height="201"/>
+                                            <size key="maxSize" width="436" height="10000000"/>
+                                            <color key="insertionPointColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                        </textView>
+                                    </subviews>
+                                </clipView>
+                                <scroller key="verticalScroller" verticalHuggingPriority="750" horizontal="NO" id="f9C-hn-1gf">
+                                    <rect key="frame" x="425" y="0.0" width="15" height="201"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </scroller>
+                            </scrollView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="ZbT-50-eHi" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" id="1e2-fY-8rJ"/>
+                            <constraint firstItem="2Kr-qy-KhS" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" id="Mct-z1-Hia"/>
+                            <constraint firstItem="LQ6-y2-qBQ" firstAttribute="leading" secondItem="2Kr-qy-KhS" secondAttribute="trailing" constant="8" id="PJL-3F-eOb"/>
+                            <constraint firstAttribute="bottom" secondItem="ZbT-50-eHi" secondAttribute="bottom" constant="20" id="TU7-Eh-08f"/>
+                            <constraint firstAttribute="trailing" secondItem="ZbT-50-eHi" secondAttribute="trailing" constant="20" id="aU7-Ah-4BG"/>
+                            <constraint firstItem="ZbT-50-eHi" firstAttribute="top" secondItem="2Kr-qy-KhS" secondAttribute="bottom" constant="8" id="bzp-b7-nvU"/>
+                            <constraint firstItem="2Kr-qy-KhS" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="19" id="d3q-WT-drj"/>
+                            <constraint firstAttribute="trailing" secondItem="LQ6-y2-qBQ" secondAttribute="trailing" constant="20" id="iDe-K3-YBm"/>
+                            <constraint firstItem="LQ6-y2-qBQ" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="20" id="sVl-TA-T6K"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="LoadedCircuitScrollView" destination="ZbT-50-eHi" id="snn-Ms-k0m"/>
+                        <outlet property="LoadedFileTextField" destination="2Kr-qy-KhS" id="Ln7-bH-uuS"/>
+                    </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>

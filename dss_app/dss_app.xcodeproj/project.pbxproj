@@ -14,8 +14,8 @@
 		54095810217A1E9500C62CCE /* dss_capi in Resources */ = {isa = PBXBuildFile; fileRef = 5409580F217A1E9500C62CCE /* dss_capi */; };
 		54095813217A1EED00C62CCE /* libdss_capi_v7.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 54095812217A1EED00C62CCE /* libdss_capi_v7.dylib */; };
 		54095815217A1EF000C62CCE /* libklusolve.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 54095814217A1EF000C62CCE /* libklusolve.dylib */; };
-		54095817217A1F2000C62CCE /* libklusolve.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = 54095814217A1EF000C62CCE /* libklusolve.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		54095818217A1F2000C62CCE /* libdss_capi_v7.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = 54095812217A1EED00C62CCE /* libdss_capi_v7.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		54095817217A1F2000C62CCE /* libklusolve.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = 54095814217A1EF000C62CCE /* libklusolve.dylib */; };
+		54095818217A1F2000C62CCE /* libdss_capi_v7.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = 54095812217A1EED00C62CCE /* libdss_capi_v7.dylib */; };
 		5409581A217A1F6C00C62CCE /* DSS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54095819217A1F6C00C62CCE /* DSS.swift */; };
 /* End PBXBuildFile section */
 
