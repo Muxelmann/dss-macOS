@@ -97,6 +97,20 @@ class DSS {
         return elements
     }
 
+    static let getByteArray: ((UnsafeMutablePointer<UnsafeMutablePointer<Int8>?>, UnsafeMutablePointer<Int32>) -> ()) -> [Int] = {
+        dssFunction -> [Int] in
+        var elementArray: UnsafeMutablePointer<Int8>? =  = UnsafeMutablePointer<Int8>.allocate(capacity: Int(Int32.max))
+        var elementCount = Int32(0)
+        dssFunction(&elementArray, &elementCount)
+
+        var elements = [Int]()
+        for i in 0 ..< Int(elementCount) {
+            elements += [Int(elementArray![i])]
+        }
+
+        return elements
+    }
+
     static func getString(from function: () -> UnsafeMutablePointer<Int8>?) -> String? {
         if let string = function() {
             return String(cString: string)

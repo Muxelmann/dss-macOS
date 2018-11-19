@@ -83,6 +83,10 @@ def decode_func(line):
                 elif r[0] == 'int32_t**'and r[1] == 'int32_t*':
                     func_def += 'func ' + swift_function + '() -> [Int] {\n' + \
                         'return DSS.getIntArray(' + c_function + ')\n}\n'
+                elif r[0] == 'int8_t**' and r[1] == 'int32_t*':
+                    func_def += 'func ' + swift_function + '() -> [Int] {\n' + \
+                        'return DSS.getByteArray(' + c_function + ')\n}\n'
+
             elif c_num_arguments == 3: # When accepting 3 c_arguments
                 r = re.findall('^(\S+).+, (\S+).+, (\S+).+$', c_arguments)
                 if len(r) > 0:
